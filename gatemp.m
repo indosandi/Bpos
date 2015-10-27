@@ -7,7 +7,7 @@ function aq=ga(alm)
     %alm(:,:,:)=alm2(1,:,:,:);
     lmax=size(alm,2)-1;
     lico=[0:2:16];
-    Nq=size(alm,1);
+    Nq=18;
     %dq=headg('dqsph');
     dq=1/20;
 	qgrid=0:dq:(Nq-1)*dq;
@@ -39,7 +39,7 @@ function aq=ga(alm)
         l=lico(il);
 		for m=-l:l
 		almgrid=alm(:,l+1,m+l+1);
-		almp=interp1(qgrid,almgrid,qqr);
+		almp=interp1(qgrid,almgrid,qqr,'spline');
         almp2(l+1,m+l+1,:)=almp;
 		end
     end
